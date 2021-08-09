@@ -13,23 +13,21 @@ public class WordFrequencyGame {
             return "Calculate Error";
         }
     }
+            private List<wordInfo> getInfo(String sentence) {
+             List<String> words = Arrays.asList(sentence.split(SPACE));
 
-    private List<wordInfo> getInfo(String sentence) {
-        List<String> words = Arrays.asList(sentence.split(SPACE));
-        List<wordInfo> wordInfoList = new ArrayList<>();
-        for (String word : new HashSet<>(words)) {
-            int count = Collections.frequency(words, word);
-            wordInfoList.add(new wordInfo(word, count));
-        }
-        wordInfoList.sort((firstWrdInfo, secWordInfo) -> secWordInfo.getWordCount() - firstWrdInfo.getWordCount());
-        return wordInfoList;
-    }
+              return
+              words.stream()
+                      .map(word -> new wordInfo(word,Collections.frequency(words,word)))
+                      .sorted((word, word2) -> word2.getWordCount() - word.getWordCount())
+                      .collect(Collectors.toList());
+            }
+            private String getConstructedWordInfo(List<wordInfo> wordInfoList){
+                return wordInfoList.stream()
+                                    .map(wordInfo ->wordInfo.getWord()+" "+wordInfo.getWordCount()).distinct()
+                                    .collect(Collectors.joining("\n"));
+            }
 
-    private String getConstructedWordInfo(List<wordInfo> wordInfoList) {
-        return wordInfoList.stream()
-                .map(wordInfo -> wordInfo.getWord() + " " + wordInfo.getWordCount())
-                .collect(Collectors.joining("\n"));
-    }
 
 
 }
