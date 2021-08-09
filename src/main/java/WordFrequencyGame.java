@@ -5,17 +5,21 @@ import java.util.Map;
 import java.util.StringJoiner;
 
 public class WordFrequencyGame {
+
+    public static final String SPACE = "\\s+";
+
     public String getResult(String inputStr){
 
 
-        if (inputStr.split("\\s+").length==1) {
+
+        if (inputStr.split(SPACE).length==1) {
             return inputStr + " 1";
         } else {
 
             try {
 
                 //split the input string with 1 to n pieces of spaces
-                String[] arr = inputStr.split("\\s+");
+                String[] arr = inputStr.split(SPACE);
 
                 List<wordInfo> wordInfoList = new ArrayList<>();
                 for (String s : arr) {
