@@ -28,24 +28,7 @@ public class WordFrequencyGame {
                                     .map(wordInfo ->wordInfo.getValue()+" "+wordInfo.getWordCount())
                                     .collect(Collectors.joining("\n"));
             }
-            private Map<String,List<wordInfo>> getListMap(List<wordInfo> wordInfoList) {
-                Map<String, List<wordInfo>> map = new HashMap<>();
 
-                for (wordInfo wordInfo : wordInfoList){
-                    if (!map.containsKey(wordInfo.getValue())){
-                        ArrayList arr = new ArrayList<>();
-                        arr.add(wordInfo);
-                        map.put(wordInfo.getValue(), arr);
-                    }
-
-                    else {
-                        map.get(wordInfo.getValue()).add(wordInfo);
-                    }
-                }
-
-
-                return map;
-            }
 
 
 }
