@@ -1,8 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class WordFrequencyGame {
 
@@ -24,6 +21,12 @@ public class WordFrequencyGame {
                     wordInfo wordInfo = new wordInfo(word, 1);
                     wordInfoList.add(wordInfo);
                 }
+//                //trying to refactor code above
+//                List <String> words1 = Arrays.asList(words);
+//                List<wordInfo> wordInfoList1 = new ArrayList<>();
+//               words1.stream().map(word -> wordInfoList1.add(new wordInfo(word,1))).collect(Collectors.toList());
+
+
 
 
                 //get the map for the next step of sizing the same word
@@ -39,9 +42,9 @@ public class WordFrequencyGame {
                 wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
 
                 StringJoiner joiner = new StringJoiner("\n");
-                for (wordInfo w : wordInfoList) {
-                    String s = w.getValue() + " " +w.getWordCount();
-                    joiner.add(s);
+                for (wordInfo wordInfo : wordInfoList) {
+                    String wordOutput = wordInfo.getValue() + " " +wordInfo.getWordCount();
+                    joiner.add(wordOutput);
                 }
                 return joiner.toString();
             } catch (Exception e) {
