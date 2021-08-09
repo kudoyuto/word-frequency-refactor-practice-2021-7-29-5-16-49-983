@@ -6,13 +6,6 @@ public class WordFrequencyGame {
     public static final String SPACE = "\\s+";
 
     public String getResult(String sentence){
-
-
-
-        if (sentence.split(SPACE).length==1) {
-            return sentence + " 1";
-        } else {
-
             try {
                 //split the input string with 1 to n pieces of spaces
                 String[] words = sentence.split(SPACE);
@@ -21,14 +14,6 @@ public class WordFrequencyGame {
                     wordInfo wordInfo = new wordInfo(word, 1);
                     wordInfoList.add(wordInfo);
                 }
-//                //trying to refactor code above
-//                List <String> words1 = Arrays.asList(words);
-//                List<wordInfo> wordInfoList1 = new ArrayList<>();
-//               words1.stream().map(word -> wordInfoList1.add(new wordInfo(word,1))).collect(Collectors.toList());
-
-
-
-
                 //get the map for the next step of sizing the same word
                 Map<String, List<wordInfo>> map =getListMap(wordInfoList);
 
@@ -48,12 +33,10 @@ public class WordFrequencyGame {
                 }
                 return joiner.toString();
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
         }
-    }
+
 
 
     private Map<String,List<wordInfo>> getListMap(List<wordInfo> wordInfoList) {
