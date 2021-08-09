@@ -8,13 +8,14 @@ public class wordInfo {
     }
 
 
-    public String getValue() {
+    public String getWord() {
         return this.value;
     }
 
     public int getWordCount() {
         return this.count;
     }
+
 
 
 }

@@ -25,7 +25,7 @@ public class WordFrequencyGame {
             }
             private String getConstructedWordInfo(List<wordInfo> wordInfoList){
                 return wordInfoList.stream()
-                                    .map(wordInfo ->wordInfo.getValue()+" "+wordInfo.getWordCount())
+                                    .map(wordInfo ->wordInfo.getWord()+" "+wordInfo.getWordCount())
                                     .collect(Collectors.joining("\n"));
             }
 
